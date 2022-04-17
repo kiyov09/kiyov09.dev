@@ -17,7 +17,7 @@ export default function Navbar() {
         <NavbarLink href="/">kiyov09.dev</NavbarLink>
       </div>
       <nav>
-        <ul className="flex h-full items-center gap-6">
+        <ul className="flex h-full items-center gap-6 font-light">
           <li>
             <NavbarLink href="#about">About Me</NavbarLink>
           </li>
@@ -30,12 +30,14 @@ export default function Navbar() {
           <li>
             <NavbarLink href="#projects">What I&apos;ve Done</NavbarLink>
           </li>
-          <li>
-            <Link href="#contact" passHref>
-              <a className="flex rounded-lg bg-blue-gradient py-3 px-6 text-white hover:scale-105">
-                Contact Me
-              </a>
-            </Link>
+          <li className="relative">
+            <div className="border-1 border-transparent bg-clip-padding before:absolute before:inset-0 before:-z-10 before:-m-0.5 before:rounded-md before:bg-blue-gradient after:absolute after:inset-0 after:-z-10 after:-m-0 after:rounded-md after:bg-primary-dark hover:scale-105">
+              <Link href="#contact" passHref>
+                <a className="flex rounded-lg bg-blue-gradient bg-clip-text py-3 px-5 font-medium text-transparent">
+                  Contact Me
+                </a>
+              </Link>
+            </div>
           </li>
         </ul>
       </nav>

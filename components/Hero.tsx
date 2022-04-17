@@ -2,7 +2,7 @@ import Image from 'next/image'
 
 export default function Hero() {
   return (
-    <section className="relative flex h-full bg-transparent py-40">
+    <section className="relative flex h-full bg-transparent py-44">
       <div className="flex flex-1 flex-col justify-center">
         <h1 className="w-full bg-blue-gradient bg-clip-text py-4 text-6xl font-semibold tracking-wide text-transparent">
           <span className="mb-2 block">
