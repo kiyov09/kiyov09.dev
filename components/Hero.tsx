@@ -57,7 +57,7 @@ export default function Hero() {
         </div>
       </div>
       <div className="flex flex-1 items-center justify-center">
-        <div className="relative h-96 w-96 overflow-hidden rounded-full ring ring-sky-500/80 ring-offset-8 ring-offset-primary-dark">
+        <div className="relative h-96 w-96 rounded-full before:rounded-full bg-clip-padding m-auto border-2 border-transparent before:absolute before:-m-2 before:inset-0 before:bg-blue-gradient before:-z-10 after:rounded-full after:absolute after:-m-1 after:inset-0 after:bg-primary-dark after:-z-10">
           <Image
             src="https://avatars.githubusercontent.com/u/15782488?v=4"
             alt="Me"
