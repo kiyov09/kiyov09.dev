@@ -12,7 +12,7 @@ const Home: NextPage = () => {
         <link rel="icon" href="/favicon.ico" />
       </Head>
 
-      <div className="-z-10 absolute inset-x-0 -top-24 h-screen w-[110%] rotate-12 transform bg-transparent bg-[url(/hero-background-pattern.svg)] bg-auto bg-repeat xl:rotate-6 xl:-top-16"></div>
+      <div className="absolute inset-x-0 -top-24 -z-10 h-screen w-[110%] rotate-12 transform bg-transparent bg-[url(/hero-background-pattern.svg)] bg-auto bg-repeat xl:-top-16 xl:rotate-6"></div>
 
       <Navbar />
       <main className="">
