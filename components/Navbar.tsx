@@ -3,7 +3,7 @@ import Link from 'next/link'
 function NavbarLink({ children, href }) {
   return (
     <Link href={href} passHref>
-      <a className="relative after:absolute after:left-0 after:-bottom-2 after:h-0.5 after:w-0 after:bg-current after:transition-all hover:after:w-full">
+      <a className="relative tracking-wider after:absolute after:left-0 after:-bottom-2 after:h-0.5 after:w-0 after:bg-current after:transition-all hover:after:w-full">
         {children}
       </a>
     </Link>
@@ -28,7 +28,7 @@ export default function Navbar() {
             <NavbarLink href="#tech">Tech I Love</NavbarLink>
           </li>
           <li>
-            <NavbarLink href="#projects">What I've Done</NavbarLink>
+            <NavbarLink href="#projects">What I&apos;ve Done</NavbarLink>
           </li>
           <li>
             <Link href="#contact" passHref>
