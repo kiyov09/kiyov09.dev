@@ -1,6 +1,12 @@
 import Link from 'next/link'
 
-function NavbarLink({ children, href }) {
+function NavbarLink({
+  children,
+  href,
+}: {
+  children: React.ReactNode
+  href: string
+}) {
   return (
     <Link href={href} passHref>
       <a className="relative tracking-wider after:absolute after:left-0 after:-bottom-2 after:h-0.5 after:w-0 after:bg-current after:transition-all hover:after:w-full">
