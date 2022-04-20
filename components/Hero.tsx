@@ -2,18 +2,18 @@ import Image from 'next/image'
 
 export default function Hero() {
   return (
-    <section className="relative flex h-full bg-transparent py-44">
-      <div className="flex flex-1 flex-col justify-center">
-        <h1 className="w-full bg-blue-gradient bg-clip-text py-4 text-6xl font-semibold tracking-wide text-transparent">
+    <section className="relative flex h-full flex-col-reverse bg-transparent pt-24 pb-48 lg:flex-row lg:py-44">
+      <div className="flex flex-1 flex-col justify-center text-center lg:text-left">
+        <h1 className="w-full bg-blue-gradient bg-clip-text py-4 text-5xl font-semibold tracking-wide text-transparent md:text-6xl">
           <span className="mb-2 block">
             Hi, there! <span className="text-yellow-500">👋</span>
           </span>
           I&apos;m Enrique Mej&iacute;as
         </h1>
-        <h2 className="mt-2 text-xl tracking-wider">
+        <h2 className="mt-2 text-lg tracking-wider md:text-xl">
           A Frontend Engineer based in Mexico.
         </h2>
-        <div className="mt-8 flex gap-6">
+        <div className="mt-8 flex items-center justify-center gap-6 lg:justify-start">
           <a
             href="https://github.com/kiyov09"
             target="_blank"
@@ -58,8 +58,8 @@ export default function Hero() {
           </a>
         </div>
       </div>
-      <div className="flex flex-1 items-center justify-center">
-        <div className="relative m-auto h-96 w-96 rounded-full border-2 border-transparent bg-clip-padding before:absolute before:inset-0 before:-z-10 before:-m-2 before:rounded-full before:bg-blue-gradient after:absolute after:inset-0 after:-z-10 after:-m-1 after:rounded-full after:bg-primary-dark">
+      <div className="mb-8 mr-0 flex items-center justify-center lg:mr-16 lg:mb-0">
+        <div className="relative h-40 w-40 rounded-full border-2 border-transparent bg-clip-padding before:absolute before:inset-0 before:-z-10 before:-m-2 before:rounded-full before:bg-blue-gradient after:absolute after:inset-0 after:-z-10 after:-m-1 after:rounded-full after:bg-primary-dark md:h-60 md:w-60 lg:h-80 lg:w-80 xl:h-96 xl:w-96">
           <Image
             src="https://avatars.githubusercontent.com/u/15782488?v=4"
             alt="Me"

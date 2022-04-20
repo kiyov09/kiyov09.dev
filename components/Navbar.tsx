@@ -16,13 +16,27 @@ function NavbarLink({
   )
 }
 
+function HamburguerMenu() {
+  return (
+    <svg
+      className="h-6 w-6 fill-current text-current hover:cursor-pointer hover:text-blue-200 lg:hidden"
+      viewBox="0 0 20 20"
+    >
+      <path d="M0 3h20v2H0V3zm0 6h20v2H0V9zm0 6h20v2H0v-2z" />
+    </svg>
+  )
+}
+
 export default function Navbar() {
   return (
     <header className="flex h-20 w-full items-center justify-between">
       <div className="text-xl font-medium uppercase">
         <NavbarLink href="/">kiyov09.dev</NavbarLink>
       </div>
-      <nav>
+
+      <HamburguerMenu />
+
+      <nav className="hidden lg:block">
         <ul className="flex h-full items-center gap-6 font-light">
           <li>
             <NavbarLink href="#about">About Me</NavbarLink>
