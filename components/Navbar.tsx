@@ -29,7 +29,7 @@ function HamburguerMenu() {
 
 export default function Navbar() {
   return (
-    <header className="flex h-20 w-full items-center justify-between">
+    <header className="absolute top-0 left-0 right-0 flex h-20 w-full items-center justify-between">
       <div className="text-xl font-medium uppercase">
         <NavbarLink href="/">kiyov09.dev</NavbarLink>
       </div>
