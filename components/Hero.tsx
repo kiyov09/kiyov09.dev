@@ -71,10 +71,9 @@ export default function Hero() {
   return (
     <section className="relative flex h-screen max-h-screen flex-col-reverse items-center justify-center bg-transparent pb-16 lg:flex-row">
       <div className="flex flex-col justify-center text-center lg:flex-1 lg:text-left">
-        <h1 className="w-full bg-blue-gradient bg-clip-text py-4 text-4xl font-semibold tracking-wide text-transparent md:text-5xl lg:text-6xl 2xl:text-7xl">
-          <span className="mb-2 block">
-            Hi, there! <span className="text-yellow-500">👋</span>
-          </span>
+        <h1 className="w-full bg-blue-gradient bg-clip-text py-4 text-4xl font-semibold leading-[1.2] tracking-wide text-transparent md:text-5xl md:leading-[1.2] lg:text-6xl lg:leading-[1.2] 2xl:text-7xl 2xl:leading-[1.2]">
+          Hi, there! <span className="text-yellow-500">👋</span>
+          <br />
           I&apos;m Enrique Mej&iacute;as
         </h1>
         <h2 className="mt-2 text-base tracking-wider md:text-xl">
