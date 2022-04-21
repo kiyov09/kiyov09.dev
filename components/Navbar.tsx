@@ -27,6 +27,18 @@ function HamburguerMenu() {
   )
 }
 
+function ContactMeBtn() {
+  return (
+    <div className="border-1 border-transparent bg-clip-padding before:absolute before:inset-0 before:-z-10 before:-m-0.5 before:rounded-md before:bg-blue-gradient after:absolute after:inset-0 after:-z-10 after:-m-0 after:rounded-md after:bg-primary-dark hover:scale-105">
+      <Link href="#contact" passHref>
+        <a className="flex rounded-lg bg-blue-gradient bg-clip-text py-3 px-5 font-medium text-transparent">
+          Contact Me
+        </a>
+      </Link>
+    </div>
+  )
+}
+
 export default function Navbar() {
   return (
     <header className="absolute top-0 left-0 right-0 z-20 flex h-20 w-full items-center justify-between pt-2">
@@ -51,13 +63,7 @@ export default function Navbar() {
             <NavbarLink href="#projects">What I&apos;ve Done</NavbarLink>
           </li>
           <li className="relative">
-            <div className="border-1 border-transparent bg-clip-padding before:absolute before:inset-0 before:-z-10 before:-m-0.5 before:rounded-md before:bg-blue-gradient after:absolute after:inset-0 after:-z-10 after:-m-0 after:rounded-md after:bg-primary-dark hover:scale-105">
-              <Link href="#contact" passHref>
-                <a className="flex rounded-lg bg-blue-gradient bg-clip-text py-3 px-5 font-medium text-transparent">
-                  Contact Me
-                </a>
-              </Link>
-            </div>
+            <ContactMeBtn />
           </li>
         </ul>
       </nav>
