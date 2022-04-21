@@ -16,12 +16,10 @@ const Home: NextPage = () => {
         />
       </Head>
 
-      <div className="absolute inset-x-0 -top-24 -z-10 h-screen w-full transform bg-transparent bg-[url(/hero-background-pattern.svg)] bg-auto bg-repeat xl:-top-16 xl:rotate-6"></div>
-
       <Navbar />
+
       <main className="">
         <Hero />
-        <div className="h-96 border-red-300"></div>
       </main>
     </div>
   )
