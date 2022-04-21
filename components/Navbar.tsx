@@ -9,7 +9,7 @@ function NavbarLink({
 }) {
   return (
     <Link href={href} passHref>
-      <a className="relative tracking-wider after:absolute after:left-0 after:-bottom-2 after:h-0.5 after:w-0 after:bg-current after:transition-all hover:after:w-full">
+      <a className="relative font-medium tracking-wider after:absolute after:left-0 after:-bottom-2 after:h-0.5 after:w-0 after:bg-blue-gradient after:transition-all hover:bg-blue-gradient hover:bg-clip-text hover:text-transparent hover:after:w-full">
         {children}
       </a>
     </Link>
@@ -29,7 +29,10 @@ function HamburguerMenu() {
 
 function ContactMeBtn() {
   return (
-    <div className="border-1 border-transparent bg-clip-padding before:absolute before:inset-0 before:-z-10 before:-m-0.5 before:rounded-md before:bg-blue-gradient after:absolute after:inset-0 after:-z-10 after:-m-0 after:rounded-md after:bg-primary-dark hover:scale-105">
+    <div
+      className="border-1 border-transparent bg-clip-padding before:absolute
+      before:inset-0 before:-z-10 before:-m-0.5 before:rounded-md before:bg-blue-gradient after:absolute after:inset-0 after:-z-10 after:-m-0 after:rounded-md after:bg-primary-dark hover:scale-105"
+    >
       <Link href="#contact" passHref>
         <a className="flex rounded-lg bg-blue-gradient bg-clip-text py-3 px-5 font-medium text-transparent">
           Contact Me
