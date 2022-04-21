@@ -4,13 +4,13 @@ export default function Hero() {
   return (
     <section className="relative flex h-screen max-h-screen flex-col-reverse items-center justify-center bg-transparent pb-16 lg:flex-row">
       <div className="flex flex-col justify-center text-center lg:flex-1 lg:text-left">
-        <h1 className="w-full bg-blue-gradient bg-clip-text py-4 text-3xl font-semibold tracking-wide text-transparent md:text-5xl lg:text-6xl 2xl:text-7xl">
+        <h1 className="w-full bg-blue-gradient bg-clip-text py-4 text-4xl font-semibold tracking-wide text-transparent md:text-5xl lg:text-6xl 2xl:text-7xl">
           <span className="mb-2 block">
             Hi, there! <span className="text-yellow-500">👋</span>
           </span>
           I&apos;m Enrique Mej&iacute;as
         </h1>
-        <h2 className="mt-2text-base tracking-wider md:text-xl">
+        <h2 className="mt-2 text-base tracking-wider md:text-xl">
           A Frontend Engineer based in Mexico.
         </h2>
         <div className="mt-8 flex items-center justify-center gap-6 lg:justify-start">
