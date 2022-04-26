@@ -6,7 +6,7 @@ import Hero from '@/components/Hero'
 
 const Home: NextPage = () => {
   return (
-    <div className="relative mx-auto min-h-screen w-full max-w-7xl">
+    <div className="relative mx-auto min-h-screen w-full max-w-5xl">
       <Head>
         <title>kiyov09.dev - Enrique Mejias Website</title>
         <link rel="icon" href="/favicon.ico" />
