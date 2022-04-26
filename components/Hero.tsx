@@ -69,7 +69,7 @@ function TwitterIcon() {
 
 export default function Hero() {
   return (
-    <section className="relative flex h-screen max-h-screen flex-col-reverse items-center justify-center bg-transparent pb-16 lg:flex-row">
+    <section className="relative flex h-screen max-h-screen min-h-[40rem] flex-col-reverse items-center justify-center bg-transparent pb-16 lg:min-h-[47rem] lg:flex-row">
       <div className="flex flex-col justify-center text-center lg:flex-1 lg:text-left">
         <h1 className="w-full bg-blue-gradient bg-clip-text py-4 text-4xl font-semibold leading-[1.2] tracking-wide text-transparent md:text-5xl md:leading-[1.2] lg:text-6xl lg:leading-[1.2] 2xl:text-7xl 2xl:leading-[1.2]">
           Hi, there! <span className="text-yellow-500">👋</span>
@@ -107,7 +107,7 @@ export default function Hero() {
         </div>
       </div>
       <div className="mb-8 mr-0 flex items-center justify-center lg:mr-16 lg:mb-0">
-        <div className="relative h-32 w-32 rounded-full border-2 border-transparent bg-clip-padding before:absolute before:inset-0 before:-z-10 before:-m-2 before:rounded-full before:bg-blue-gradient after:absolute after:inset-0 after:-z-10 after:-m-1 after:rounded-full after:bg-primary-dark md:h-60 md:w-60 lg:h-80 lg:w-80 xl:h-96 xl:w-96">
+        <div className="relative h-32 w-32 rounded-full border-2 border-transparent bg-clip-padding before:absolute before:inset-0 before:-z-10 before:-m-2 before:rounded-full before:bg-blue-gradient after:absolute after:inset-0 after:-z-10 after:-m-1 after:rounded-full after:bg-primary-dark md:h-60 md:w-60 lg:h-80 lg:w-80">
           <Image
             src="https://avatars.githubusercontent.com/u/15782488?v=4"
             alt="Me"
