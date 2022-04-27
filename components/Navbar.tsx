@@ -1,4 +1,5 @@
 import Link from 'next/link'
+import { useState } from 'react'
 
 function NavbarLink({
   children,
@@ -16,14 +17,61 @@ function NavbarLink({
   )
 }
 
-function HamburguerMenu() {
+function CloseIcon() {
   return (
     <svg
-      className="h-6 w-6 fill-current text-current hover:cursor-pointer hover:text-blue-200 lg:hidden"
+      className="fixed top-6 right-6 z-50 h-6 w-6 fill-current text-current hover:cursor-pointer hover:text-blue-200"
       viewBox="0 0 20 20"
     >
-      <path d="M0 3h20v2H0V3zm0 6h20v2H0V9zm0 6h20v2H0v-2z" />
+      <path d="M10 8.586L2.929 1.515 1.515 2.929 8.586 10l-7.071 7.071 1.414 1.414L10 11.414l7.071 7.071 1.414-1.414L11.414 10l7.071-7.071-1.414-1.414L10 8.586z" />
     </svg>
+  )
+}
+
+function HamburguerMenu() {
+  const [isOpen, setIsOpen] = useState(false)
+
+  return (
+    <>
+      {isOpen ? (
+        <button onClick={() => setIsOpen(false)}>
+          <CloseIcon />
+        </button>
+      ) : (
+        <button onClick={() => setIsOpen(true)}>
+          <svg
+            className="h-6 w-6 fill-current text-current hover:cursor-pointer hover:text-blue-200 lg:hidden"
+            viewBox="0 0 20 20"
+          >
+            <path d="M0 3h20v2H0V3zm0 6h20v2H0V9zm0 6h20v2H0v-2z" />
+          </svg>
+        </button>
+      )}
+
+      <nav
+        className={`inset-0 z-20 bg-primary-dark ${
+          isOpen ? 'fixed' : 'hidden'
+        }`}
+      >
+        <ul className="flex h-full flex-col items-center justify-center gap-10 text-lg font-light">
+          <li>
+            <NavbarLink href="#about">About Me</NavbarLink>
+          </li>
+          <li>
+            <NavbarLink href="#experience">Experience</NavbarLink>
+          </li>
+          <li>
+            <NavbarLink href="#tech">Tech I Love</NavbarLink>
+          </li>
+          <li>
+            <NavbarLink href="#projects">What I&apos;ve Done</NavbarLink>
+          </li>
+          <li className="relative">
+            <ContactMeBtn />
+          </li>
+        </ul>
+      </nav>
+    </>
   )
 }
 
