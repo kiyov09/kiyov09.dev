@@ -72,7 +72,7 @@ export default function Hero() {
     <section className="relative flex h-screen max-h-screen min-h-[40rem] flex-col-reverse items-center justify-center bg-transparent pb-16 lg:min-h-[47rem] lg:flex-row">
       <div className="flex flex-col justify-center text-center lg:flex-1 lg:text-left">
         <h1 className="w-full bg-blue-gradient bg-clip-text py-4 text-4xl font-semibold leading-[1.2] tracking-wide text-transparent md:text-5xl md:leading-[1.2] lg:text-[3.5rem] lg:leading-[1.2]">
-          Hi, there! <span className="text-yellow-500">👋</span>
+          Hi, there! <span className="text-yellow-500">👋 </span>
           <br />
           I&apos;m Enrique Mej&iacute;as
         </h1>
