@@ -4,6 +4,7 @@ import Head from 'next/head'
 import Navbar from '@/components/Navbar'
 import Hero from '@/components/Hero'
 import AboutMe from '@/components/AboutMe'
+import Experience from '@/components/Experience'
 
 const Home: NextPage = () => {
   return (
@@ -52,6 +53,7 @@ const Home: NextPage = () => {
       <main className="">
         <Hero />
         <AboutMe />
+        <Experience />
       </main>
     </div>
   )
