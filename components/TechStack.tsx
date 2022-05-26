@@ -5,7 +5,14 @@ type ComponentTagProps = {
   children: React.ReactElement | React.ReactElement[]
 }
 
-function TechCard({ as, icon }: { as?: string; icon: React.ReactElement }) {
+type TechCardProps = {
+  as?: string
+  icon: React.ReactElement
+  info?: string
+  readMoreLink?: string
+}
+
+function TechCard({ as, icon, info, readMoreLink }: TechCardProps) {
   const ComponentTag = (props: ComponentTagProps) =>
     createElement(as || 'div', { ...props }, props.children)
 
