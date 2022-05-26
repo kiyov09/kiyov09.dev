@@ -92,7 +92,7 @@ function ContactMeBtn() {
 
 export default function Navbar() {
   return (
-    <header className="absolute top-0 left-0 right-0 z-20 flex h-14 w-full items-center justify-between pt-2 lg:h-20">
+    <header className="absolute top-10 left-0 right-0 z-20 flex h-14 w-full items-center justify-between pt-2 lg:h-20">
       <div className="text-xl font-medium uppercase">
         <NavbarLink href="/">kiyov09.dev</NavbarLink>
       </div>
