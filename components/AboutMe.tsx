@@ -2,7 +2,7 @@ export default function AboutMe() {
   return (
     <section
       id="about"
-      className="flex flex-col-reverse items-center justify-between gap-16 bg-transparent py-28 lg:flex-row"
+      className="my-6 flex flex-col-reverse items-center justify-between gap-16 bg-transparent py-8 lg:my-12 lg:flex-row lg:py-16"
     >
       {/* Images */}
       <div className="hidden h-96 flex-1 rounded-lg bg-neutral-500 lg:block"></div>
@@ -12,7 +12,7 @@ export default function AboutMe() {
           About Me
         </h2>
         <p className="mt-6 text-base font-light leading-relaxed tracking-wider">
-          Hi! My name is Enrique Mej&iacute;as. I&apos;m a Cuban fronted
+          Hi! My name is Enrique Mej&iacute;as. I&apos;m a Cuban frontend
           engineer, currently living in Mexico. I love coding for the web (which
           I&apos;ve been doing for more that 8 years now) and, honestly, I
           don&apos;t see myself doing anything else.

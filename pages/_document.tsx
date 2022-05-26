@@ -17,6 +17,7 @@ export default function Document() {
         <div className="absolute inset-x-0 -z-10 h-screen w-screen transform bg-transparent bg-[url(/hero-background-pattern.svg)] bg-auto bg-repeat opacity-70"></div>
         <Main />
         <NextScript />
+        <div className="absolute inset-x-0 bottom-0 -z-10 h-[32rem] w-screen transform items-center bg-transparent bg-[url(/hero-background-pattern.svg)] bg-auto bg-repeat opacity-70 lg:h-[36rem]"></div>
       </body>
     </Html>
   )

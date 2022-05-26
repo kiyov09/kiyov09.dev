@@ -5,6 +5,8 @@ import Navbar from '@/components/Navbar'
 import Hero from '@/components/Hero'
 import AboutMe from '@/components/AboutMe'
 import Experience from '@/components/Experience'
+import TechStack from '@/components/TechStack'
+import Footer from '@/components/Footer'
 
 const Home: NextPage = () => {
   return (
@@ -54,7 +56,10 @@ const Home: NextPage = () => {
         <Hero />
         <AboutMe />
         <Experience />
+        <TechStack />
       </main>
+
+      <Footer />
     </div>
   )
 }
