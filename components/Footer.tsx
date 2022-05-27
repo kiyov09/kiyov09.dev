@@ -69,8 +69,16 @@ function TwitterIcon() {
 
 function MessageBtn() {
   return (
-    <button className="rounded-lg bg-blue-gradient py-3 px-5 text-lg font-medium capitalize text-white hover:scale-105">
-      Send me an email
+    <button
+      className="
+        border-1 group relative block border-transparent z-10
+        bg-clip-padding before:absolute before:inset-0 before:-z-10 before:-m-0.5 before:rounded-md
+        before:bg-blue-gradient after:absolute after:inset-0 after:-z-10 after:-m-0 after:rounded-md
+        after:bg-primary-dark hover:text-white hover:after:bg-blue-gradient"
+    >
+      <span className="inline-block rounded-lg bg-blue-gradient bg-clip-text py-3 px-5 font-medium text-transparent group-hover:text-white">
+        Send me an email
+      </span>
     </button>
   )
 }
