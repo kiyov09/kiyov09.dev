@@ -17,7 +17,7 @@ function TechCard({ as, icon, info, readMoreLink }: TechCardProps) {
     createElement(as || 'div', { ...props }, props.children)
 
   return (
-    <ComponentTag className="relative flex w-64 shrink-0 flex-col rounded-md bg-gray-800 px-6 pt-20 pb-8 text-center">
+    <ComponentTag className="relative flex w-[60vw] shrink-0 flex-col rounded-md bg-gray-800 px-6 pt-20 pb-8 text-center sm:w-[35vw] md:w-[30vw] lg:w-[20vw] 2xl:w-64">
       <div className="absolute -top-12 left-1/2 h-24 w-24 -translate-x-1/2 ">
         {icon}
       </div>
@@ -57,10 +57,10 @@ export default function TechStack() {
       id="tech"
       className="my-8 flex flex-col items-center bg-transparent py-8 lg:my-20"
     >
-      <h2 className="mx-auto inline-block bg-blue-gradient bg-clip-text py-4 text-center text-3xl font-semibold capitalize leading-[1.2] tracking-wide text-transparent md:text-4xl md:leading-[1.2] lg:text-5xl lg:leading-[1.2]">
+      <h2 className="lg:mx-auto inline-block bg-blue-gradient bg-clip-text py-4 text-center text-3xl font-semibold capitalize leading-[1.2] tracking-wide text-transparent md:text-4xl md:leading-[1.2] lg:text-5xl lg:leading-[1.2]">
         Tech I Love
       </h2>
-      <ul className="mt-10 flex w-screen snap-x snap-mandatory items-center gap-8 overflow-x-scroll py-12 px-4 lg:mt-20">
+      <ul className="mt-10 flex w-screen max-w-[2300px] snap-x snap-mandatory items-center gap-8 overflow-x-scroll py-12 px-4 lg:mt-20">
         <TechCard
           as="li"
           icon={
