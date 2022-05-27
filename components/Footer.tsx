@@ -83,7 +83,7 @@ export default function Footer() {
           {"Let's talk"}
         </h2>
         <p className="text-base font-light leading-relaxed tracking-wider">
-          Any project in mind? Leave me a message of how can I help you.
+          Any project in mind? Leave me a message and tell me how can I help.
         </p>
         <div className="relative">
           <MessageBtn />
