@@ -16,7 +16,7 @@ export default function Experience() {
         JavaScript. I love CSS too btw.
       </p>
       <p className="mt-6 text-base font-light leading-relaxed tracking-wider">
-        For almost 4 years now I&apos;ve been working as a Fronted Engineer for{' '}
+        For almost 4 years now I&apos;ve been working as a Frontend Engineer for{' '}
         <Link href="https://envato.mx">Envato Mexico</Link>, mainly as part of
         the engineering team behind the{' '}
         <Link href="https://placeit.net">PlaceIt</Link> platform.
