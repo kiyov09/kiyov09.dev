@@ -78,11 +78,14 @@ function HamburguerMenu() {
 function ContactMeBtn() {
   return (
     <div
-      className="border-1 border-transparent bg-clip-padding before:absolute
-      before:inset-0 before:-z-10 before:-m-0.5 before:rounded-md before:bg-blue-gradient after:absolute after:inset-0 after:-z-10 after:-m-0 after:rounded-md after:bg-primary-dark hover:scale-105"
+      className="
+        border-1 group border-transparent
+        bg-clip-padding before:absolute before:inset-0 before:-z-10 before:-m-0.5 before:rounded-md
+        before:bg-blue-gradient after:absolute after:inset-0 after:-z-10 after:-m-0 after:rounded-md
+        after:bg-primary-dark hover:text-white hover:after:bg-blue-gradient"
     >
       <Link href="#contact" passHref>
-        <a className="inline-block rounded-lg bg-blue-gradient bg-clip-text py-3 px-5 font-medium text-transparent">
+        <a className="inline-block rounded-lg bg-blue-gradient bg-clip-text py-3 px-5 font-medium text-transparent group-hover:text-white">
           Contact Me
         </a>
       </Link>
