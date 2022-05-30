@@ -1,7 +1,5 @@
 import { useState } from 'react'
-import Cta from '../UI/Buttons/Cta'
 import CloseIcon from '../UI/Icons/CloseIcon'
-import NavbarLink from './NavbarLink'
 
 type HamburgerMenuProps = {
   children: React.ReactNode | React.ReactNode[]
@@ -28,8 +26,8 @@ export default function HamburgerMenu({ children }: HamburgerMenuProps) {
       )}
 
       <nav
-        className={`inset-0 z-20 bg-primary-dark ${
-          isOpen ? 'fixed' : 'hidden'
+        className={`fixed inset-0 z-20 bg-primary-dark transition-transform duration-500 ${
+          isOpen ? 'translate-x-0' : 'translate-x-full'
         }`}
       >
         <ul className="flex h-full flex-col items-center justify-center gap-10 text-lg font-light">
