@@ -10,11 +10,7 @@ export default function HamburgerMenu({ children }: HamburgerMenuProps) {
 
   return (
     <>
-      {isOpen ? (
-        <button onClick={() => setIsOpen(false)}>
-          <CloseIcon />
-        </button>
-      ) : (
+      {isOpen ? null : (
         <button onClick={() => setIsOpen(true)}>
           <svg
             className="h-6 w-6 fill-current text-current hover:cursor-pointer hover:text-blue-200 lg:hidden"
@@ -26,10 +22,13 @@ export default function HamburgerMenu({ children }: HamburgerMenuProps) {
       )}
 
       <nav
-        className={`fixed inset-0 z-20 bg-primary-dark transition-transform duration-500 ${
+        className={`fixed inset-0 z-20 bg-primary-dark transition-transform duration-300 ease-in-out ${
           isOpen ? 'translate-x-0' : 'translate-x-full'
         }`}
       >
+        <button onClick={() => setIsOpen(false)}>
+          <CloseIcon />
+        </button>
         <ul className="flex h-full flex-col items-center justify-center gap-10 text-lg font-light">
           {children}
         </ul>
