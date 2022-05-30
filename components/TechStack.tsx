@@ -29,7 +29,7 @@ function TechCard({ as, icon, info, readMoreLink }: TechCardProps) {
       >
         Learn more
         <svg
-          width="16"
+          width="12"
           height="10"
           viewBox="0 0 16 10"
           fill="none"
