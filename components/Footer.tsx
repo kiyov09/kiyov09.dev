@@ -1,4 +1,5 @@
 import { IoMdPaperPlane } from 'react-icons/io'
+import TargetBlankLink from './TargetBlankLink'
 import Cta from './UI/Buttons/Cta'
 import GithubIcon from './UI/Icons/GithubIcon'
 import LinkedInIcon from './UI/Icons/LinkedInIcon'
@@ -21,30 +22,24 @@ export default function Footer() {
         <div className="pt-6">
           <h3 className="text-md lg:text-lg">Or reach me on the interweb</h3>
           <div className="mt-4 flex items-center justify-center gap-6 lg:justify-start">
-            <a
+            <TargetBlankLink
               href="https://github.com/kiyov09"
-              target="_blank"
-              rel="noopener noreferrer"
               className="group h-6 w-6 hover:scale-110"
             >
               <GithubIcon />
-            </a>
-            <a
+            </TargetBlankLink>
+            <TargetBlankLink
               href="https://www.linkedin.com/in/kiyov09/"
-              target="_blank"
-              rel="noopener noreferrer"
               className="group h-6 w-6 hover:scale-110"
             >
               <LinkedInIcon />
-            </a>
-            <a
+            </TargetBlankLink>
+            <TargetBlankLink
               href="https://twitter.com/kiyov09"
-              target="_blank"
-              rel="noopener noreferrer"
               className="group h-6 w-6 hover:scale-110"
             >
               <TwitterIcon />
-            </a>
+            </TargetBlankLink>
           </div>
         </div>
       </div>

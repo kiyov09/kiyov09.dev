@@ -1,4 +1,5 @@
 import { createElement } from 'react'
+import TargetBlankLink from './TargetBlankLink'
 
 type ComponentTagProps = {
   className?: string
@@ -8,8 +9,8 @@ type ComponentTagProps = {
 type TechCardProps = {
   as?: string
   icon: React.ReactElement
-  info?: string
-  readMoreLink?: string
+  info: string
+  readMoreLink: string
 }
 
 function TechCard({ as, icon, info, readMoreLink }: TechCardProps) {
@@ -17,18 +18,14 @@ function TechCard({ as, icon, info, readMoreLink }: TechCardProps) {
     createElement(as || 'div', { ...props }, props.children)
 
   return (
-    <ComponentTag className="relative flex w-[60vw] shrink-0 flex-col rounded-md bg-gray-800 px-6 pt-20 pb-8 text-center sm:w-[35vw] md:w-[30vw] lg:w-[20vw] 2xl:w-64">
+    <ComponentTag className="relative flex h-72 w-[60vw] shrink-0 flex-col rounded-md bg-gray-800 px-6 pt-20 pb-6 text-center sm:w-[35vw] md:w-[30vw] lg:w-[20vw] 2xl:w-64">
       <div className="absolute -top-12 left-1/2 h-24 w-24 -translate-x-1/2 ">
         {icon}
       </div>
-      <p>
-        Lorem ipsum dolor sit amet, consectetur adipiscing elit. Augue tellus,
-        ultricies felis, sed. Leo, dui volutpat sed accumsan risus elit
-        sagittis, nec, ut
-      </p>
-      <a
-        href="#"
-        className="mt-6 flex items-center justify-center font-semibold"
+      <p className="flex-1">{info}</p>
+      <TargetBlankLink
+        href={readMoreLink}
+        className="group mt-6 flex items-center justify-center justify-self-end font-semibold hover:bg-blue-gradient hover:bg-clip-text hover:text-transparent"
       >
         Learn more
         <svg
@@ -37,16 +34,15 @@ function TechCard({ as, icon, info, readMoreLink }: TechCardProps) {
           viewBox="0 0 16 10"
           fill="none"
           xmlns="http://www.w3.org/2000/svg"
-          className="ml-2"
+          className="ml-2 fill-[#DBEAFE] group-hover:fill-[#60A5FA]"
         >
           <path
             fillRule="evenodd"
             clipRule="evenodd"
             d="M10.293 0.292787C10.4805 0.105316 10.7348 0 11 0C11.2652 0 11.5195 0.105316 11.707 0.292787L15.707 4.29279C15.8945 4.48031 15.9998 4.73462 15.9998 4.99979C15.9998 5.26495 15.8945 5.51926 15.707 5.70679L11.707 9.70679C11.5184 9.88894 11.2658 9.98974 11.0036 9.98746C10.7414 9.98518 10.4906 9.88001 10.3052 9.6946C10.1198 9.5092 10.0146 9.25838 10.0123 8.99619C10.01 8.73399 10.1108 8.48139 10.293 8.29279L12.586 5.99979H1C0.734784 5.99979 0.48043 5.89443 0.292893 5.70689C0.105357 5.51936 0 5.265 0 4.99979C0 4.73457 0.105357 4.48022 0.292893 4.29268C0.48043 4.10514 0.734784 3.99979 1 3.99979H12.586L10.293 1.70679C10.1055 1.51926 10.0002 1.26495 10.0002 0.999786C10.0002 0.734622 10.1055 0.480314 10.293 0.292787Z"
-            fill="#DBEAFE"
           />
         </svg>
-      </a>
+      </TargetBlankLink>
     </ComponentTag>
   )
 }
@@ -57,15 +53,13 @@ export default function TechStack() {
       id="tech"
       className="my-8 flex flex-col items-center bg-transparent py-8 lg:my-20"
     >
-      <h2 className="lg:mx-auto inline-block bg-blue-gradient bg-clip-text py-4 text-center text-3xl font-semibold capitalize leading-[1.2] tracking-wide text-transparent md:text-4xl md:leading-[1.2] lg:text-5xl lg:leading-[1.2]">
+      <h2 className="inline-block bg-blue-gradient bg-clip-text py-4 text-center text-3xl font-semibold capitalize leading-[1.2] tracking-wide text-transparent md:text-4xl md:leading-[1.2] lg:mx-auto lg:text-5xl lg:leading-[1.2]">
         Tech I Love
       </h2>
       <ul className="mt-10 flex w-screen max-w-[2300px] snap-x snap-mandatory items-center gap-8 overflow-x-scroll py-12 px-4 lg:mt-20">
         <TechCard
           as="li"
           icon={
-            // <SiNextdotjs className="h-full w-full rounded-full border-2 border-black bg-white text-black" />
-
             <svg
               viewBox="0 0 128 128"
               className="h-full w-full rounded-full border border-white bg-white"
@@ -73,8 +67,8 @@ export default function TechStack() {
               <path d="M64 0C28.7 0 0 28.7 0 64s28.7 64 64 64c11.2 0 21.7-2.9 30.8-7.9L48.4 55.3v36.6h-6.8V41.8h6.8l50.5 75.8C116.4 106.2 128 86.5 128 64c0-35.3-28.7-64-64-64zm22.1 84.6l-7.5-11.3V41.8h7.5v42.8z"></path>
             </svg>
           }
-          info=""
-          readMoreLink=""
+          info="Production grade React applications that scale. The world’s leading companies use Next.js by Vercel to build static and dynamic websites and web applications."
+          readMoreLink={'https://nextjs.org/'}
         />
         <TechCard
           as="li"
@@ -86,8 +80,8 @@ export default function TechStack() {
               </g>
             </svg>
           }
-          info=""
-          readMoreLink=""
+          info={'A JavaScript library for building user interfaces.'}
+          readMoreLink={'https://reactjs.org/'}
         />
         <TechCard
           as="li"
@@ -103,8 +97,12 @@ export default function TechStack() {
               ></path>
             </svg>
           }
-          info=""
-          readMoreLink=""
+          info={
+            'JavaScript (JS) is a lightweight, interpreted, or just-in-time compiled programming language with first-class functions.'
+          }
+          readMoreLink={
+            'https://developer.mozilla.org/en-US/docs/Web/JavaScript'
+          }
         />
         <TechCard
           as="li"
@@ -118,8 +116,10 @@ export default function TechStack() {
               ></path>
             </svg>
           }
-          info=""
-          readMoreLink=""
+          info={
+            'TypeScript is a strongly typed programming language that builds on JavaScript, giving you better tooling at any scale.'
+          }
+          readMoreLink={'https://www.typescriptlang.org/'}
         />
         <TechCard
           as="li"
@@ -131,8 +131,10 @@ export default function TechStack() {
               ></path>
             </svg>
           }
-          info=""
-          readMoreLink=""
+          info={
+            'A utility-first CSS framework packed with classes like flex, pt-4, text-center and rotate-90 that can be composed to build any design, directly in your markup.'
+          }
+          readMoreLink={'https://tailwindcss.com/'}
         />
         <TechCard
           as="li"
@@ -144,8 +146,10 @@ export default function TechStack() {
               ></path>
             </svg>
           }
-          info=""
-          readMoreLink=""
+          info={
+            'Jest is a delightful JavaScript Testing Framework with a focus on simplicity.'
+          }
+          readMoreLink={'https://jestjs.io/'}
         />
         <TechCard
           as="li"
@@ -157,8 +161,10 @@ export default function TechStack() {
               ></path>
             </svg>
           }
-          info=""
-          readMoreLink=""
+          info={
+            'Storybook is an open source tool for building UI components and pages in isolation.'
+          }
+          readMoreLink={'https://storybook.js.org/'}
         />
         <TechCard
           as="li"
@@ -170,8 +176,10 @@ export default function TechStack() {
               </g>
             </svg>
           }
-          info=""
-          readMoreLink=""
+          info={
+            'Yarn is a package manager that doubles down as project manager.'
+          }
+          readMoreLink={'https://yarnpkg.com/'}
         />
       </ul>
     </section>
