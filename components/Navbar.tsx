@@ -1,5 +1,6 @@
 import Link from 'next/link'
 import { useState } from 'react'
+import Cta from './UI/Buttons/Cta'
 
 function NavbarLink({
   children,
@@ -67,29 +68,11 @@ function HamburguerMenu() {
             <NavbarLink href="#projects">What I&apos;ve Done</NavbarLink>
           </li>
           <li className="relative">
-            <ContactMeBtn />
+            <Cta>Contact Me</Cta>
           </li>
         </ul>
       </nav>
     </>
-  )
-}
-
-function ContactMeBtn() {
-  return (
-    <div
-      className="
-        border-1 group border-transparent
-        bg-clip-padding before:absolute before:inset-0 before:-z-10 before:-m-0.5 before:rounded-md
-        before:bg-blue-gradient after:absolute after:inset-0 after:-z-10 after:-m-0 after:rounded-md
-        after:bg-primary-dark hover:text-white hover:after:bg-blue-gradient"
-    >
-      <Link href="#contact" passHref>
-        <a className="inline-block rounded-lg bg-blue-gradient bg-clip-text py-3 px-5 font-medium text-transparent group-hover:text-white">
-          Contact Me
-        </a>
-      </Link>
-    </div>
   )
 }
 
@@ -117,7 +100,7 @@ export default function Navbar() {
             <NavbarLink href="#projects">What I&apos;ve Done</NavbarLink>
           </li>
           <li className="relative">
-            <ContactMeBtn />
+            <Cta>Contact Me</Cta>
           </li>
         </ul>
       </nav>
