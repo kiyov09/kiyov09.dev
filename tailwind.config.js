@@ -7,6 +7,7 @@ module.exports = {
     extend: {
       colors: {
         'primary-dark': '#19212c',
+        'primary-dark-light': 'hsl(217deg 26% 20%)',
         'linkedin-blue': '#0072b1',
         'twitter-blue': '#1da1f2',
       },
