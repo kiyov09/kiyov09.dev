@@ -18,7 +18,7 @@ function TechCard({ as, icon, info, readMoreLink }: TechCardProps) {
     createElement(as || 'div', { ...props }, props.children)
 
   return (
-    <ComponentTag className="relative flex h-72 w-[60vw] shrink-0 flex-col rounded-md bg-gray-800 px-6 pt-20 pb-6 text-center sm:w-[35vw] md:w-[30vw] lg:w-[20vw] 2xl:w-64">
+    <ComponentTag className="relative flex h-72 w-[50vw] max-w-[18rem] shrink-0 flex-col rounded-md bg-gray-800 px-6 pt-20 pb-6 text-center">
       <div className="absolute -top-12 left-1/2 h-24 w-24 -translate-x-1/2 ">
         {icon}
       </div>
