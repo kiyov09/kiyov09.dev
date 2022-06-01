@@ -1,4 +1,4 @@
-import { useState } from 'react'
+import { useRef, useState, MouseEvent } from 'react'
 import CloseIcon from '../UI/Icons/CloseIcon'
 
 type HamburgerMenuProps = {
@@ -7,6 +7,14 @@ type HamburgerMenuProps = {
 
 export default function HamburgerMenu({ children }: HamburgerMenuProps) {
   const [isOpen, setIsOpen] = useState(false)
+  const ulRef = useRef<HTMLUListElement>(null)
+
+  const handleChildrenClick = (e: MouseEvent<HTMLUListElement>) => {
+    if (e.target === ulRef.current) {
+      return
+    }
+    setIsOpen(false)
+  }
 
   return (
     <>
@@ -29,7 +37,11 @@ export default function HamburgerMenu({ children }: HamburgerMenuProps) {
         <button onClick={() => setIsOpen(false)}>
           <CloseIcon />
         </button>
-        <ul className="flex h-full flex-col items-center justify-center gap-10 text-lg font-light">
+        <ul
+          ref={ulRef}
+          className="flex h-full flex-col items-center justify-center gap-10 text-lg font-light"
+          onClick={handleChildrenClick}
+        >
           {children}
         </ul>
       </nav>
