@@ -4,6 +4,7 @@ import Cta from './UI/Buttons/Cta'
 import GithubIcon from './UI/Icons/GithubIcon'
 import LinkedInIcon from './UI/Icons/LinkedInIcon'
 import TwitterIcon from './UI/Icons/TwitterIcon'
+import Modal from './UI/Modal'
 
 export default function Footer() {
   return (
@@ -16,7 +17,7 @@ export default function Footer() {
           Any project in mind? Leave me a message and tell me how can I help.
         </p>
         <div className="relative">
-          <Cta>Send me an email</Cta>
+          <Modal trigger={<Cta>Send me an email</Cta>} />
         </div>
         {/* Social */}
         <div className="pt-6">

@@ -1,6 +1,7 @@
 import HamburgerMenu from './Navbar/HamburgerMenu'
 import NavbarLink from './Navbar/NavbarLink'
 import Cta from './UI/Buttons/Cta'
+import Modal from './UI/Modal'
 
 function renderNavbarLinks() {
   return (
@@ -18,7 +19,7 @@ function renderNavbarLinks() {
         <NavbarLink href="#projects">What I&apos;ve Done</NavbarLink>
       </li>
       <li className="relative">
-        <Cta>Contact Me</Cta>
+        <Modal trigger={<Cta>Contact Me</Cta>} />
       </li>
     </>
   )
