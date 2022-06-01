@@ -17,15 +17,17 @@ export default function Modal({ trigger }: ModalProps) {
 
     setIsLoading(true)
 
+    const target = e.target as HTMLFormElement
+
     fetch('/api/contact_me', {
       method: 'POST',
       headers: {
         'Content-Type': 'application/json',
       },
       body: JSON.stringify({
-        email: e.target.email.value,
-        subject: e.target.subject.value,
-        message: e.target.message.value,
+        email: target.email.value,
+        subject: target.subject.value,
+        message: target.message.value,
       }),
     }).then(() => {
       setTimeout(() => {
