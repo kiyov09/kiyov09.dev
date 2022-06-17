@@ -56,7 +56,7 @@ export default function TechStack() {
       <h2 className="inline-block bg-blue-gradient bg-clip-text py-4 text-center text-3xl font-semibold capitalize leading-[1.2] tracking-wide text-transparent md:text-4xl md:leading-[1.2] lg:mx-auto lg:text-5xl lg:leading-[1.2]">
         Tech I Love
       </h2>
-      <ul className="mt-10 flex w-screen max-w-[2300px] snap-x snap-mandatory items-center gap-8 overflow-x-scroll py-12 px-4 lg:mt-20">
+      <ul className="mt-10 flex w-screen max-w-fit snap-x snap-mandatory items-center gap-8 overflow-x-scroll py-12 px-4 lg:mt-20">
         <TechCard
           as="li"
           icon={
