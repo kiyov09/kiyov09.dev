@@ -1,0 +1,26 @@
+# fly.toml app configuration file generated for kiyov09-dev on 2023-10-25T14:16:07-06:00
+#
+# See https://fly.io/docs/reference/configuration/ for information about how to use this file.
+#
+
+app = "kiyov09-dev"
+primary_region = "gdl"
+
+[build]
+
+[experimental]
+  cmd = ["./kiyov09_dev"]
+  auto_rollback = true
+
+[http_service]
+  internal_port = 8080
+  force_https = true
+  auto_stop_machines = true
+  auto_start_machines = true
+  min_machines_running = 1
+  processes = ["app"]
+
+  [http_service.concurrency]
+    type = "requests"
+    soft_limit = 200
+    hard_limit = 250
