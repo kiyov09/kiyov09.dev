@@ -1,4 +1,7 @@
 use axum::{routing::get, Router};
+
+use tower_http::services::ServeDir;
+
 use std::net::SocketAddr;
 
 #[tokio::main]
@@ -7,7 +10,8 @@ async fn main() {
         .route("/", get(root))
         .route("/blog", get(nothing_yet))
         .route("/projects", get(nothing_yet))
-        .route("/contact", get(nothing_yet));
+        .route("/contact", get(nothing_yet))
+        .nest_service("/static", ServeDir::new("static"));
 
     let addr = SocketAddr::from(([0, 0, 0, 0], 5001));
 
