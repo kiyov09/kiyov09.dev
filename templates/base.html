@@ -1,0 +1,21 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>{% block titke%}kiyov09.dev{% endblock%}</title>
+  </head>
+
+  <body>
+    <nav>
+      <ul>
+        {% for link in crate::templates::LINKS %}
+          <li><a href="{{ link.href }}">{{ link.label }}</a></li>
+        {% endfor %}
+      </ul>
+    </nav>
+
+    {% block content%}Content{% endblock%}
+  </body>
+</html>
