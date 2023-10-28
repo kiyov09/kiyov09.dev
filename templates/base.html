@@ -9,15 +9,30 @@
     <link rel="stylesheet" href="/static/output.css" />
   </head>
 
-  <body>
-    <nav>
-      <ul>
-        {% for link in crate::templates::LINKS %}
-          <li><a href="{{ link.href }}">{{ link.label }}</a></li>
-        {% endfor %}
-      </ul>
-    </nav>
+  <body class="bg-neutral-800 text-white tracking-wide selection:bg-yellow-500
+    selection:text-neutral-800">
+    <div class="p-4 w-full mx-auto lg:max-w-5xl lg:pt-8">
 
-    {% block content%}Content{% endblock%}
+      <nav class="flex justify-between items-center">
+        <a href="/" class="text-xl font-semibold text-yellow-500">kiyov09.dev</a>
+        <ul class="flex gap-6">
+          {% for link in crate::templates::LINKS %}
+            <li>
+              <a
+                href="{{ link.href }}"
+                class="transition-colors duration-200 hover:text-yellow-500
+              hover:underline focus:text-yellow-500 focus:underline"
+              >
+                {{ link.label }}
+              </a>
+            </li>
+          {% endfor %}
+        </ul>
+      </nav>
+
+      <div class="py-8">
+        {% block content %}Content{% endblock %}
+      </div>
+    </div>
   </body>
 </html>

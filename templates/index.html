@@ -5,6 +5,43 @@
 {% endblock %}
 
 {% block content %}
-    <h1>Hello world</h1>
-    <p>Look mom, Axum + Askama</p>
+    <main>
+      {# Into section about me #}
+      <section
+        class="mt-20 h-96 flex justify-center items-center"
+      >
+        <div class="flex-1 flex items-center justify-center">
+          <img
+            class="w-3/5 object-cover aspect-square rounded-full ring-2
+            ring-yellow-500 ring-offset-neutral-800 ring-offset-4"
+            {# TODO: Change this URL #}
+            src="https://pbs.twimg.com/profile_images/1646721699935666176/B6SAaaDu_400x400.jpg"
+            alt="kiyov09 (aka Enrique Mejías)" />
+        </div>
+
+        <div class="h-1/3 flex-1 flex flex-col justify-evenly pr-8">
+          <h1 class="text-3xl">
+            Hey there! 👋, I'm Kiyov09
+          </h1>
+
+          <p class="mt-6 leading-relaxed">
+            I'm a Cuban software engineer working <a href="https://envato.com">@envato</a>, trying to make
+            <a href="https://placeit.net">@placeitapp</a> a little bit better every day.
+            <br />
+            Becoming a rustacean 🦀
+          </p>
+        </div>
+      </section>
+
+      {# Latest posts #}
+      <section class="mt-20">
+        <h2 class="text-3xl text-yellow-500">
+          Latest posts
+        </h2>
+        <ul class="mt-4">
+          Ooops, no posts yet!
+        </ul>
+      </section>
+
+    </main>
 {% endblock %}
