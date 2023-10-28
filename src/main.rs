@@ -13,7 +13,7 @@ async fn main() {
         .route("/contact", get(nothing_yet))
         .nest_service("/static", ServeDir::new("static"));
 
-    let addr = SocketAddr::from(([0, 0, 0, 0], 5001));
+    let addr = SocketAddr::from(([0, 0, 0, 0], 8080));
 
     axum::Server::bind(&addr)
         .serve(app.into_make_service())
