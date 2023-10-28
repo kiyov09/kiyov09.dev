@@ -8,23 +8,23 @@
     <main>
       {# Into section about me #}
       <section
-        class="mt-20 h-96 flex justify-center items-center"
+        class="mt-4 md:mt-20 h-96 flex flex-col md:flex-row justify-center items-center"
       >
         <div class="flex-1 flex items-center justify-center">
-          <img
-            class="w-3/5 object-cover aspect-square rounded-full ring-2
+         <img
+            class="w-36 md:w-3/5 object-cover aspect-square rounded-full ring-2
             ring-yellow-500 ring-offset-neutral-800 ring-offset-4"
             {# TODO: Change this URL #}
             src="https://pbs.twimg.com/profile_images/1646721699935666176/B6SAaaDu_400x400.jpg"
             alt="kiyov09 (aka Enrique Mejías)" />
         </div>
 
-        <div class="h-1/3 flex-1 flex flex-col justify-evenly pr-8">
-          <h1 class="text-3xl">
+        <div class="h-1/3 flex-1 flex flex-col items-center md:items-start justify-evenly pr-8">
+          <h1 class="text-2xl md:text-3xl">
             Hey there! 👋, I'm Kiyov09
           </h1>
 
-          <p class="mt-6 leading-relaxed">
+          <p class="mt-6 leading-relaxed max-w-lg text-center md:text-left">
             I'm a Cuban software engineer working <a href="https://envato.com">@envato</a>, trying to make
             <a href="https://placeit.net">@placeitapp</a> a little bit better every day.
             <br />

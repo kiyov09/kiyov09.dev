@@ -11,11 +11,11 @@
 
   <body class="bg-neutral-800 text-white tracking-wide selection:bg-yellow-500
     selection:text-neutral-800">
-    <div class="p-4 w-full mx-auto lg:max-w-5xl lg:pt-8">
+    <div class="p-4 w-full mx-auto md:max-w-5xl md:pt-8">
 
       <nav class="flex justify-between items-center">
         <a href="/" class="text-xl font-semibold text-yellow-500">kiyov09.dev</a>
-        <ul class="flex gap-6">
+        <ul class="gap-6 hidden md:flex">
           {% for link in crate::templates::LINKS %}
             <li>
               <a
@@ -28,6 +28,7 @@
             </li>
           {% endfor %}
         </ul>
+        {% include "partials/hamburger.html" %}
       </nav>
 
       <div class="py-8">
