@@ -29,5 +29,6 @@ WORKDIR /app
 
 # Get compiled binaries from builder's cargo install directory
 COPY --from=builder /usr/local/cargo/bin/kiyov09_dev /app/kiyov09_dev
+COPY --from=builder /usr/src/app/static /app/static
 
 # No CMD or ENTRYPOINT, see fly.toml with `cmd` override.
