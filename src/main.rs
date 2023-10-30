@@ -1,5 +1,4 @@
 use axum::{routing::get, Router};
-
 use tower_http::services::ServeDir;
 
 use std::net::SocketAddr;
@@ -13,7 +12,9 @@ async fn main() {
         .route("/contact", get(nothing_yet))
         .nest_service("/static", ServeDir::new("static"));
 
-    let addr = SocketAddr::from(([0, 0, 0, 0], 8080));
+    let port =
+        std::env::var("PORT").map_or(5001, |p| p.parse::<u16>().expect("PORT must be a number"));
+    let addr = SocketAddr::from(([0, 0, 0, 0], port));
 
     axum::Server::bind(&addr)
         .serve(app.into_make_service())

@@ -8,6 +8,9 @@ primary_region = "gdl"
 
 [build]
 
+[env]
+PORT = "8080"
+
 [experimental]
   cmd = ["./kiyov09_dev"]
   auto_rollback = true
