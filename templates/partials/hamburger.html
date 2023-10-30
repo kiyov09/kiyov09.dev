@@ -1,1 +1,64 @@
-<div class="block md:hidden">|||</div>
+<div class="block md:hidden">
+  <button id="menu-toggle" class="group">
+    {# Hamburger icon #}
+    <svg
+      fill="none"
+      viewBox="0 0 24 24"
+      stroke-width="1.5"
+      stroke="currentColor"
+      class="w-8 h-8 inline-block group-data-[open='true']:hidden text-white hover:text-yellow-500 focus:text-yellow-500"
+    >
+      <path
+        stroke-linecap="round"
+        stroke-linejoin="round"
+        d="M3.75 6.75h16.5M3.75 12h16.5m-16.5 5.25h16.5"
+      />
+    </svg>
+    {# Close icon #}
+    <svg
+      fill="none"
+      viewBox="0 0 24 24"
+      stroke-width="1.5"
+      stroke="currentColor"
+      class="w-8 h-8 hidden group-data-[open='true']:inline-block text-2xl z-20 absolute top-4 right-4 text-white hover:text-yellow-500 focus:text-yellow-500"
+    >
+      <path
+        stroke-linecap="round"
+        stroke-linejoin="round"
+        d="M6 18L18 6M6 6l12 12"
+      />
+    </svg>
+  </button>
+
+  <ul
+    class="max-h-screen absolute inset-0 flex flex-col gap-10 justify-center items-center text-3xl bg-neutral-800 -z-10 opacity-0 translate-x-full transition-all duration-200 ease-in-out data-[open='true']:translate-x-0 data-[open='true']:opacity-95 data-[open='true']:z-10"
+    id="menu"
+  >
+    {% for link in crate::templates::LINKS %}
+    <li>
+      <a
+        href="{{ link.href }}"
+        class="transition-colors duration-200 hover:text-yellow-500 hover:underline focus:text-yellow-500 focus:underline"
+      >
+        {{ link.label }}
+      </a>
+    </li>
+    {% endfor %}
+  </ul>
+</div>
+
+<script>
+  const menuToggle = document.getElementById("menu-toggle");
+  const menu = document.getElementById("menu");
+
+  menuToggle.addEventListener("click", () => {
+    const isOpen = menuToggle.dataset.open === "true";
+    menuToggle.dataset.open = !isOpen;
+    menu.dataset.open = !isOpen;
+  });
+
+  window.addEventListener("unload", () => {
+    menuToggle.dataset.open = false;
+    menu.dataset.open = false;
+  });
+</script>
