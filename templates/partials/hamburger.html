@@ -31,7 +31,9 @@
   </button>
 
   <ul
-    class="max-h-screen absolute inset-0 flex flex-col gap-10 justify-center items-center text-3xl bg-neutral-800 -z-10 opacity-0 translate-x-full transition-all duration-200 ease-in-out data-[open='true']:translate-x-0 data-[open='true']:opacity-95 data-[open='true']:z-10"
+    class="h-screen absolute inset-0 flex flex-col gap-10 justify-center
+    items-center text-3xl bg-neutral-800 -z-10 opacity-0 -translate-y-full
+    transition-all duration-200 ease-in-out data-[open='true']:translate-y-0 data-[open='true']:opacity-95 data-[open='true']:z-10"
     id="menu"
   >
     {% for link in crate::templates::LINKS %}
