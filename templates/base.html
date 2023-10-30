@@ -7,13 +7,12 @@
     <title>{% block title %}kiyov09.dev{% endblock %}</title>
 
     <link rel="stylesheet" href="/static/output.css" />
-    <script src="https://unpkg.com/htmx.org@1.9.6"></script>
   </head>
 
   <body class="relative bg-neutral-800 text-white tracking-wide selection:bg-yellow-500
     selection:text-neutral-800 overflow-x-hidden">
     <div class="p-4 w-full mx-auto md:max-w-5xl md:pt-8">
-      {# nav #}
+
       <nav class="flex justify-between items-center">
         <a href="/" class="text-xl font-semibold text-yellow-500">kiyov09.dev</a>
         <ul class="gap-6 hidden md:flex">
@@ -31,7 +30,7 @@
         </ul>
         {% include "partials/hamburger.html" %}
       </nav>
-      {# block content #}
+
       <div class="py-8">
         {% block content %}Content{% endblock %}
       </div>
