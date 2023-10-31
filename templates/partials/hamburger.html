@@ -1,5 +1,5 @@
-<div class="block md:hidden">
-  <button id="menu-toggle" class="group">
+<div class="block md:hidden group" id="menu-wrapper" data-open="false">
+  <button id="menu-toggle">
     {# Hamburger icon #}
     <svg
       fill="none"
@@ -33,7 +33,7 @@
   <ul
     class="h-screen absolute inset-0 flex flex-col gap-10 justify-center
     items-center text-3xl bg-neutral-800 -z-10 opacity-0 -translate-y-full
-    transition-all duration-200 ease-in-out data-[open='true']:translate-y-0 data-[open='true']:opacity-95 data-[open='true']:z-10"
+    group-data-[open='true']:transition-all duration-200 ease-in-out group-data-[open='true']:translate-y-0 group-data-[open='true']:opacity-95 group-data-[open='true']:z-10"
     id="menu"
   >
     {% for link in crate::templates::LINKS %}
@@ -50,17 +50,20 @@
 </div>
 
 <script>
+  const menuWrapper = document.getElementById("menu-wrapper");
   const menuToggle = document.getElementById("menu-toggle");
   const menu = document.getElementById("menu");
 
+  // Open/close menu
   menuToggle.addEventListener("click", () => {
-    const isOpen = menuToggle.dataset.open === "true";
-    menuToggle.dataset.open = !isOpen;
-    menu.dataset.open = !isOpen;
+    const isOpen = menuWrapper.dataset.open === "true";
+    menuWrapper.dataset.open = !isOpen;
   });
 
-  window.addEventListener("unload", () => {
-    menuToggle.dataset.open = false;
-    menu.dataset.open = false;
+  // Close menu when clicking outside
+  menu.addEventListener("click", (event) => {
+    if (event.target === menu) {
+      menuWrapper.dataset.open = false;
+    }
   });
 </script>
