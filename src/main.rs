@@ -10,6 +10,7 @@ async fn main() {
         .route("/blog", get(nothing_yet))
         .route("/projects", get(nothing_yet))
         .route("/contact", get(nothing_yet))
+        .fallback(get(not_found))
         .nest_service("/static", ServeDir::new("static"));
 
     let port =
@@ -28,6 +29,10 @@ async fn root() -> templates::Home {
 
 async fn nothing_yet() -> templates::NothingYet {
     templates::NothingYet {}
+}
+
+async fn not_found() -> templates::NotFound {
+    templates::NotFound {}
 }
 
 pub mod models {
@@ -67,4 +72,8 @@ pub mod templates {
     #[derive(Template)]
     #[template(path = "nothing_yet.html")]
     pub struct NothingYet;
+
+    #[derive(Template)]
+    #[template(path = "404.html")]
+    pub struct NotFound;
 }
