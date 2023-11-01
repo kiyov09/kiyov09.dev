@@ -11,10 +11,12 @@
   </head>
 
   <body class="relative bg-neutral-800 text-white tracking-wide selection:bg-yellow-500
-    selection:text-neutral-800 overflow-x-hidden">
+    selection:text-neutral-800 overflow-x-hidden"
+  >
     <div class="p-4 w-full mx-auto md:max-w-5xl md:pt-8">
       {# nav #}
-      <nav class="flex justify-between items-center h-8">
+      <nav class="flex justify-between items-center h-8" hx-boost="true"
+      >
         <a href="/" class="text-xl font-semibold text-yellow-500">kiyov09.dev</a>
         <ul class="gap-6 hidden md:flex">
           {% for link in crate::templates::LINKS %}

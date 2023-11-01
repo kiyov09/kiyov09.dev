@@ -1,4 +1,5 @@
-<div class="block md:hidden group" id="menu-wrapper" data-open="false">
+<div class="block md:hidden group" id="menu-wrapper" data-open="false"
+>
   <button id="menu-toggle">
     {# Hamburger icon #}
     <svg
@@ -50,20 +51,24 @@
 </div>
 
 <script>
-  const menuWrapper = document.getElementById("menu-wrapper");
-  const menuToggle = document.getElementById("menu-toggle");
-  const menu = document.getElementById("menu");
+  function setupHamMenu() {
+    const menuWrapper = document.getElementById("menu-wrapper");
+    const menuToggle = document.getElementById("menu-toggle");
+    const menu = document.getElementById("menu");
 
-  // Open/close menu
-  menuToggle.addEventListener("click", () => {
-    const isOpen = menuWrapper.dataset.open === "true";
-    menuWrapper.dataset.open = !isOpen;
-  });
+    // Open/close menu
+    menuToggle.addEventListener("click", () => {
+      const isOpen = menuWrapper.dataset.open === "true";
+      menuWrapper.dataset.open = !isOpen;
+    });
 
-  // Close menu when clicking outside
-  menu.addEventListener("click", (event) => {
-    if (event.target === menu) {
-      menuWrapper.dataset.open = false;
-    }
-  });
+    // Close menu when clicking outside
+    menu.addEventListener("click", (event) => {
+      if (event.target === menu) {
+        menuWrapper.dataset.open = false;
+      }
+    });
+  }
+
+  setupHamMenu();
 </script>
