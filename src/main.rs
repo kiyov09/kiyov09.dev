@@ -3,6 +3,9 @@ use tower_http::services::ServeDir;
 
 use std::net::SocketAddr;
 
+mod models;
+mod templates;
+
 #[tokio::main]
 async fn main() {
     let app = Router::new()
@@ -32,63 +35,4 @@ async fn nothing_yet() -> templates::NothingYet {
 
 async fn not_found() -> templates::NotFound {
     templates::NotFound {}
-}
-
-pub mod models {
-    pub struct Link {
-        pub label: &'static str,
-        pub href: &'static str,
-    }
-
-    pub struct Social {
-        pub url: &'static str,
-        pub icon: &'static str,
-    }
-}
-
-pub mod templates {
-    use crate::models;
-    use askama::Template;
-
-    pub const LINKS: [models::Link; 3] = [
-        models::Link {
-            label: "Home",
-            href: "/",
-        },
-        models::Link {
-            label: "Blog",
-            href: "/blog",
-        },
-        models::Link {
-            label: "Projects",
-            href: "/projects",
-        },
-    ];
-
-    pub const SOCIALS: [models::Social; 3] = [
-        models::Social {
-            url: "https://github.com/kiyov09",
-            icon: "/static/icons/github.svg",
-        },
-        models::Social {
-            url: "https://twitter.com/kiyov09",
-            icon: "/static/icons/twitter_x.svg",
-        },
-        models::Social {
-            url: "https://linkedin.com/in/kiyov09",
-            icon: "/static/icons/linkedin.svg",
-        },
-    ];
-
-    #[derive(Template)]
-    #[template(path = "index.html")]
-    pub struct Home {}
-
-    #[derive(Template)]
-    #[template(path = "nothing_yet.html")]
-    pub struct NothingYet;
-
-    #[derive(Template)]
-    #[template(path = "404.html")]
-    pub struct NotFound;
 }
