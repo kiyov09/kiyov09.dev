@@ -9,7 +9,6 @@ async fn main() {
         .route("/", get(root))
         .route("/blog", get(nothing_yet))
         .route("/projects", get(nothing_yet))
-        .route("/contact", get(nothing_yet))
         .fallback(get(not_found))
         .nest_service("/static", ServeDir::new("static"));
 
@@ -51,7 +50,7 @@ pub mod templates {
     use crate::models;
     use askama::Template;
 
-    pub const LINKS: [models::Link; 4] = [
+    pub const LINKS: [models::Link; 3] = [
         models::Link {
             label: "Home",
             href: "/",
@@ -63,10 +62,6 @@ pub mod templates {
         models::Link {
             label: "Projects",
             href: "/projects",
-        },
-        models::Link {
-            label: "Contact",
-            href: "/contact",
         },
     ];
 
