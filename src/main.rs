@@ -40,6 +40,11 @@ pub mod models {
         pub label: &'static str,
         pub href: &'static str,
     }
+
+    pub struct Social {
+        pub url: &'static str,
+        pub icon: &'static str,
+    }
 }
 
 pub mod templates {
@@ -65,9 +70,24 @@ pub mod templates {
         },
     ];
 
+    pub const SOCIALS: [models::Social; 3] = [
+        models::Social {
+            url: "https://github.com/kiyov09",
+            icon: "/static/icons/github.svg",
+        },
+        models::Social {
+            url: "https://twitter.com/kiyov09",
+            icon: "/static/icons/twitter_x.svg",
+        },
+        models::Social {
+            url: "https://linkedin.com/in/kiyov09",
+            icon: "/static/icons/linkedin.svg",
+        },
+    ];
+
     #[derive(Template)]
     #[template(path = "index.html")]
-    pub struct Home;
+    pub struct Home {}
 
     #[derive(Template)]
     #[template(path = "nothing_yet.html")]

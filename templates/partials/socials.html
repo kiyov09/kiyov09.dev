@@ -1,0 +1,7 @@
+<div class="flex w-full gap-4 justify-center md:justify-start">
+  {% for site in crate::templates::SOCIALS %}
+  <a href="{{ site.url }}" target="_blank" rel="noopener noreferrer">
+    <img class="w-6 h-6 hover:scale-105" src="{{ site.icon }}" alt="<icon>" />
+  </a>
+  {% endfor %}
+</div>
