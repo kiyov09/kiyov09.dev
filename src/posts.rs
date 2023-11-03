@@ -28,7 +28,6 @@ mod handlers {
 
 mod models {
     use std::{fmt::Display, str::FromStr};
-
     use tokio::fs::read_dir;
 
     #[derive(Debug, Clone)]
@@ -69,12 +68,33 @@ mod models {
 
             let mut posts = vec![];
             while let Some(entry) = dir.next_entry().await.expect("whatever") {
+                // TODO: A lot of unwraps here, need to handle errors
+
+                // Skip directories
+                if !entry.file_type().await.expect("whatever").is_file() {
+                    continue;
+                }
+
+                // Skip non-markdown files
+                if entry.path().extension().unwrap() != "md" {
+                    continue;
+                }
+
                 let content = tokio::fs::read_to_string(entry.path())
                     .await
                     .expect("whatever");
 
+                let slug = entry
+                    .path()
+                    .file_stem()
+                    .unwrap()
+                    .to_str()
+                    .unwrap()
+                    .to_string();
+
+                // TODO: Update this later to extract all that info from the file
                 posts.push(Self {
-                    slug: entry.file_name().to_str().unwrap().to_string(),
+                    slug,
                     title: "This is a post".to_string(),
                     // Intentionally long summary to test the truncation
                     summary: "Lorem ipsum dolor sit amet, officia excepteur ex fugiat reprehenderit enim labore culpa sint ad nisi Lorem pariatur mollit ex esse exercitation amet. Nisi anim cupidatat excepteur officia. Reprehenderit nostrud nostrud ipsum Lorem est aliquip amet voluptate voluptate dolor minim nulla est proident. Nostrud officia pariatur ut officia.".to_string(),
