@@ -4,14 +4,15 @@ use tower_http::services::ServeDir;
 use std::net::SocketAddr;
 
 mod models;
+mod posts;
 mod templates;
 
 #[tokio::main]
 async fn main() {
     let app = Router::new()
         .route("/", get(root))
-        .route("/blog", get(nothing_yet))
         .route("/projects", get(nothing_yet))
+        .nest("/posts", posts::routes())
         .fallback(get(not_found))
         .nest_service("/static", ServeDir::new("static"));
 

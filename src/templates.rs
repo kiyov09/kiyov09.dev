@@ -9,7 +9,7 @@ pub const LINKS: [models::Link; 3] = [
     },
     models::Link {
         label: "Blog",
-        href: "/blog",
+        href: "/posts",
     },
     models::Link {
         label: "Projects",

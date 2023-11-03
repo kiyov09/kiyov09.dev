@@ -1,0 +1,18 @@
+{% import "macros/go_back_link.html" as macros %}
+
+{% extends "base.html" %} {% block content %}
+
+<main class="mt-6 space-y-10">
+  {% call macros::go_back_link("/posts", "Back to posts") %}
+  
+  <h1 class="text-4xl md:text-6xl text-yellow-500">{{ post.title }}</h1>
+
+  {# TODO: Probably change this markdown thing later #}
+  <div class="prose prose-invert max-w-full text-white
+    prose-headings:text-yellow-500 prose-headings:font-semibold prose-a:text-yellow-500">
+    {{ post.content.as_str()|markdown}}
+  </div>
+
+</main>
+
+{% endblock%}
