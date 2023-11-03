@@ -19,10 +19,8 @@ mod handlers {
     }
 
     pub async fn show(Path(_slug): Path<String>) -> templates::Show {
-        Post::all()
+        Post::find(&_slug)
             .await
-            .into_iter()
-            .find(|post| post.slug == _slug)
             .map(|post| templates::Show { post })
             .expect("whatever")
     }
@@ -86,6 +84,10 @@ mod models {
             }
 
             posts
+        }
+
+        pub async fn find(slug: &str) -> Option<Self> {
+            Self::all().await.into_iter().find(|post| post.slug == slug)
         }
     }
 }
