@@ -1,3 +1,5 @@
+{% import "macros/go_back_link.html" as macros %}
+
 {% extends "base.html" %}
 
 {% block content %}
@@ -5,7 +7,7 @@
 <p>Sorry, but this page is not yet implemented.</p>
 
 <div class="w-max mx-auto">
-  {% include "components/back_home_btn.html" %}
+  {% call macros::go_back_link("/", "Back to home") %}
 </div>
 
 {% endblock %}
