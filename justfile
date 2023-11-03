@@ -13,3 +13,9 @@ build: tw-build
 
 run:
   cargo run
+
+# Deployment
+# INFO: this uses fly.io
+
+deploy: build
+  flyctl deploy
