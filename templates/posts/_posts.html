@@ -3,12 +3,8 @@
   <p class="text-xl md:text-2xl">Ooops, no posts yet!</p>
   {% else %} {% for post in posts %}
   <li class="block w-full group tracking-wider">
-    <a class="space-y-2" href="/posts/{{ post.slug }}"
-      hx-boost="true"
-      hx-select="main"
-      hx-target="main"
-      hx-swap="outerHTML"
-    >
+    <a class="space-y-2" href="/posts/{{ post.slug }}" hx-boost="true" hx-select="main" hx-target="main"
+      hx-swap="outerHTML show:window:top">
       <h2 class="text-yellow-500 text-2xl md:text-3xl relative flex items-center w-max">
         {# arrow #}
         <svg fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor"
