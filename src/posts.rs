@@ -27,6 +27,8 @@ mod handlers {
 }
 
 mod models {
+    use gray_matter::{engine::YAML, Matter};
+    use serde::Deserialize;
     use std::{fmt::Display, str::FromStr};
     use tokio::fs::read_dir;
 
@@ -59,6 +61,8 @@ mod models {
         pub title: String,
         pub summary: String,
         pub tags: Vec<Tag>,
+        pub date: String, // Use chrono?
+        pub author: String,
         pub content: String,
     }
 
@@ -92,18 +96,46 @@ mod models {
                     .unwrap()
                     .to_string();
 
-                // TODO: Update this later to extract all that info from the file
-                posts.push(Self {
-                    slug,
-                    title: "This is a post".to_string(),
-                    // Intentionally long summary to test the truncation
-                    summary: "Lorem ipsum dolor sit amet, officia excepteur ex fugiat reprehenderit enim labore culpa sint ad nisi Lorem pariatur mollit ex esse exercitation amet. Nisi anim cupidatat excepteur officia. Reprehenderit nostrud nostrud ipsum Lorem est aliquip amet voluptate voluptate dolor minim nulla est proident. Nostrud officia pariatur ut officia.".to_string(),
-                    tags: vec!["tag1".into(), "tag2".into()],
-                    content,
-                })
+                posts.push(Self::from_file_content(slug, &content));
             }
 
             posts
+        }
+
+        fn from_file_content(slug: String, file_content: &str) -> Self {
+            let matter = Matter::<YAML>::new();
+
+            #[derive(Deserialize, Debug)]
+            struct FrontMatterData {
+                title: String,
+                date: String,
+                author: String,
+                tags: Vec<String>,
+            }
+
+            let result_with_struct = matter
+                .parse_with_struct::<FrontMatterData>(file_content)
+                .unwrap();
+
+            let excerpt = result_with_struct.excerpt.unwrap_or_default();
+
+            let content = result_with_struct.content.trim_start_matches(&excerpt);
+            let content = content.trim_start_matches(['-', '\n']);
+
+            Self {
+                slug,
+                title: result_with_struct.data.title,
+                summary: excerpt.to_string(),
+                tags: result_with_struct
+                    .data
+                    .tags
+                    .iter()
+                    .map(|tag| Tag(tag.to_string()))
+                    .collect(),
+                date: result_with_struct.data.date,
+                author: result_with_struct.data.author,
+                content: content.to_string(),
+            }
         }
 
         pub async fn find(slug: &str) -> Option<Self> {
@@ -116,6 +148,27 @@ mod templates {
     use askama::Template;
 
     use crate::posts::models::Post;
+
+    mod filters {
+        use comrak::plugins::syntect::SyntectAdapter;
+        use comrak::{markdown_to_html_with_plugins, ComrakOptions, ComrakPlugins};
+
+        pub fn markdown_custom(content: &str) -> askama::Result<String> {
+            // comrak stuff
+            let options = ComrakOptions::default();
+
+            // TODO: Find/make a gruvbox theme
+            let adapter = SyntectAdapter::new("base16-eighties.dark");
+            let mut plugins = ComrakPlugins::default();
+
+            plugins.render.codefence_syntax_highlighter = Some(&adapter);
+
+            // Actually convert the markdown to HTML
+            let html = markdown_to_html_with_plugins(content, &options, &plugins);
+
+            Ok(html)
+        }
+    }
 
     #[derive(Template)]
     #[template(path = "posts/index.html")]

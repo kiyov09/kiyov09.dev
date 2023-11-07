@@ -1,16 +1,43 @@
 {% import "macros/go_back_link.html" as macros %}
 
-{% extends "base.html" %} {% block content %}
+{% extends "base.html" %}
 
-<main class="mt-6 space-y-10">
+{% block title %}
+  {{ post.title }} - {% call super() %}
+{% endblock %}
+
+{% block content %}
+
+<main class="mt-6 space-y-14">
   {% call macros::go_back_link("/posts", "Back to posts") %}
   
-  <h1 class="text-4xl md:text-6xl text-yellow-500">{{ post.title }}</h1>
+  <div class="relative space-y-2">
+    <h1 class="text-4xl md:text-6xl text-yellow-500">{{ post.title }}</h1>
+
+    <p class="text-neutral-400 text-base md:text-lg font-light italic">
+      {{ post.date }}
+    </p>
+
+    {#
+      I need to think who to expose this info
+      <p class="text-neutral-400 text-sm md:text-base font-light italic">
+        {{ post.author }}
+      </p>
+    #}
+
+    <ul class="flex gap-4">
+      {% for tag in post.tags %}
+      <li class="text-neutral-500 font-light italic">{{ tag }}</li>
+      {% endfor %}
+    </ul>
+  </div>
 
   {# TODO: Probably change this markdown thing later #}
   <div class="prose prose-invert max-w-full text-white
     prose-headings:text-yellow-500 prose-headings:font-semibold prose-a:text-yellow-500">
-    {{ post.content.as_str()|markdown}}
+
+    {# This is a custom impl of the markdow filter #}
+    {{ post.content.as_str()|markdown_custom|safe}}
   </div>
 
 </main>
