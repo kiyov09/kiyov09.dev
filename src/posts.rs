@@ -2,21 +2,31 @@ use axum::{routing::get, Router};
 
 pub fn routes() -> Router {
     Router::new()
-        .route("/", get(handlers::index))
         .route("/:slug", get(handlers::show))
         .route("/tags/:tag", get(handlers::tag))
+        .route("/", get(handlers::index))
 }
 
 mod handlers {
+    use serde::Deserialize;
+
     use askama_axum::IntoResponse;
-    use axum::extract::Path;
+    use axum::extract::{Path, Query};
 
     use crate::posts::models::Post;
     use crate::posts::templates;
 
-    pub async fn index() -> templates::Index {
+    #[derive(Debug, Deserialize)]
+    pub struct IndexParams {
+        pub limit: Option<usize>,
+    }
+
+    pub async fn index(Query(params): Query<IndexParams>) -> templates::Index {
+        let all_posts = Post::all().await;
+        let how_many = params.limit.unwrap_or(all_posts.len());
+
         templates::Index {
-            posts: Post::all().await,
+            posts: all_posts.into_iter().take(how_many).collect(),
         }
     }
 
