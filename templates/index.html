@@ -1,3 +1,5 @@
+{% import "macros/go_back_link.html" as macros %}
+
 {% extends "base.html" %}
 
 {% block title %}
@@ -43,13 +45,20 @@
       </section>
 
       {# Latest posts #}
-      <section class="mt-20">
-        <h2 class="text-3xl text-gruvbox-yellow">
+      <section class="mt-20" id="featured-posts">
+        <h2 class="text-4xl text-gruvbox-yellow mb-8">
           Latest posts
         </h2>
-        <ul class="mt-4">
-          Ooops, no posts yet!
+        <ul
+          hx-trigger="load"
+          hx-get="/posts?limit=3"
+          hx-select="#posts-list"
+          hx-target="this"
+          hx-swap="outerHTML">
         </ul>
+
+        <div class="mt-8">
+          {% call macros::go_forward_link("/posts", "See all posts") %}
       </section>
 
     </main>
