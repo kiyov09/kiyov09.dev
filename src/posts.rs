@@ -8,6 +8,7 @@ pub fn routes() -> Router {
 }
 
 mod handlers {
+    use askama_axum::IntoResponse;
     use axum::extract::Path;
 
     use crate::posts::models::Post;
@@ -19,11 +20,14 @@ mod handlers {
         }
     }
 
-    pub async fn show(Path(_slug): Path<String>) -> templates::Show {
-        Post::find(&_slug)
+    pub async fn show(Path(slug): Path<String>) -> impl IntoResponse {
+        Post::find(&slug)
             .await
-            .map(|post| templates::Show { post })
-            .expect("whatever")
+            .map(|post| templates::Show { post }.into_response())
+            // TODO: I think this is better if I return a Result with a custom error type
+            //      and then use a middleware to convert the error type into a response. That way
+            //      we can have a custom 404 page.
+            .unwrap_or_else(|| crate::templates::NotFound {}.into_response())
     }
 
     pub async fn tag(Path(tag): Path<String>) -> templates::Index {
