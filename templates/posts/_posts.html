@@ -5,7 +5,7 @@
   <li class="block w-full group tracking-wider">
     <a class="space-y-2" href="/posts/{{ post.slug }}" hx-boost="true" hx-select="main" hx-target="main"
       hx-swap="outerHTML show:window:top">
-      <h2 class="text-yellow-500 text-2xl md:text-3xl relative flex items-center w-max">
+      <h2 class="text-gruvbox-yellow text-2xl md:text-3xl relative flex items-center w-max">
         {# arrow #}
         <svg fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor"
           class="rotate-180 w-8 h-auto opacity-0 transition-all duration-200 absolute -right-4 group-hover:opacity-100 group-focus:opacity-100 group-hover:translate-x-8 group-focus:translate-x-8 mt-1">
@@ -16,7 +16,7 @@
       <p class="md:text-lg">{{ post.summary|truncate(200) }}</p>
       <ul class="flex gap-4">
         {% for tag in post.tags %}
-        <li class="text-neutral-500 font-light italic">{{ tag }}</li>
+        <li class="text-gruvbox-gray font-light italic">{{ tag }}</li>
         {% endfor %}
       </ul>
     </a>

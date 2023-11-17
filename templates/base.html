@@ -12,22 +12,22 @@
 
   </head>
 
-  <body class="relative bg-neutral-800 text-white tracking-wide
-    selection:bg-yellow-500 selection:text-neutral-800 overflow-x-hidden"
+  <body class="relative bg-gruvbox-bg text-gruvbox-fg tracking-wide
+    selection:bg-gruvbox-yellow selection:text-gruvbox-bg overflow-x-hidden"
   >
     <div class="p-4 w-full mx-auto md:max-w-5xl md:pt-8">
       {# nav #}
       <nav class="flex justify-between items-center h-8" hx-boost="true"
         hx-select="main" hx-target="main" hx-swap="outerHTML"
       >
-        <a href="/" class="text-xl font-semibold text-yellow-500">kiyov09.dev</a>
+        <a href="/" class="text-xl font-semibold text-gruvbox-yellow">kiyov09.dev</a>
         <ul class="gap-6 hidden md:flex">
           {% for link in crate::templates::LINKS %}
             <li>
               <a
                 href="{{ link.href }}"
-                class="transition-colors duration-200 hover:text-yellow-500
-              hover:underline focus:text-yellow-500 focus:underline"
+                class="transition-colors duration-200 hover:text-gruvbox-yellow
+              hover:underline focus:text-gruvbox-yellow focus:underline"
               >
                 {{ link.label }}
               </a>
