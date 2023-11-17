@@ -13,7 +13,7 @@
         </svg>
         {{ post.title }}
       </h2>
-      <p class="md:text-lg">{{ post.summary|truncate(200) }}</p>
+      <p>{{ post.summary|truncate(200) }}</p>
       <ul class="flex gap-4">
         {% for tag in post.tags %}
         <li class="text-gruvbox-gray font-light italic">{{ tag }}</li>
