@@ -33,8 +33,11 @@
   </div>
 
   {# TODO: Probably change this markdown thing later #}
-  <div class="prose prose-invert max-w-full text-white
-    prose-headings:text-gruvbox-yellow prose-headings:font-semibold prose-a:text-gruvbox-yellow">
+  <div class="prose prose-invert max-w-full text-gruvbox-fg
+    prose-headings:text-gruvbox-yellow prose-headings:font-semibold prose-a:text-gruvbox-yellow
+    prose-blockquote:text-gruvbox-gray prose-blockquote:border-gruvbox-gray
+    prose-blockquote:bg-gruvbox-bg prose-li:marker:text-gruvbox-fg"
+  >
 
     {# This is a custom impl of the markdow filter #}
     {{ post.content.as_str()|markdown_custom|safe}}
