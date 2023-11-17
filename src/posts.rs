@@ -4,6 +4,7 @@ pub fn routes() -> Router {
     Router::new()
         .route("/", get(handlers::index))
         .route("/:slug", get(handlers::show))
+        .route("/tags/:tag", get(handlers::tag))
 }
 
 mod handlers {
@@ -24,6 +25,12 @@ mod handlers {
             .map(|post| templates::Show { post })
             .expect("whatever")
     }
+
+    pub async fn tag(Path(tag): Path<String>) -> templates::Index {
+        templates::Index {
+            posts: Post::tagged(&tag.into()).await,
+        }
+    }
 }
 
 mod models {
@@ -32,12 +39,12 @@ mod models {
     use std::{fmt::Display, str::FromStr};
     use tokio::fs::read_dir;
 
-    #[derive(Debug, Clone)]
+    #[derive(Debug, Clone, PartialEq, Eq)]
     pub struct Tag(String);
 
-    impl From<&str> for Tag {
-        fn from(s: &str) -> Self {
-            Self(s.to_string())
+    impl<S: Into<String>> From<S> for Tag {
+        fn from(s: S) -> Self {
+            Self(s.into())
         }
     }
 
@@ -140,6 +147,18 @@ mod models {
 
         pub async fn find(slug: &str) -> Option<Self> {
             Self::all().await.into_iter().find(|post| post.slug == slug)
+        }
+
+        pub fn tags(&self) -> Vec<Tag> {
+            self.tags.clone()
+        }
+
+        pub async fn tagged(tag: &Tag) -> Vec<Self> {
+            Self::all()
+                .await
+                .into_iter()
+                .filter(|post| post.tags().contains(tag))
+                .collect()
         }
     }
 }
