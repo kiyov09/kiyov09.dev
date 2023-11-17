@@ -1,4 +1,7 @@
+use axum::ServiceExt;
 use axum::{routing::get, Router};
+use tower::layer::Layer;
+use tower_http::normalize_path::NormalizePathLayer;
 use tower_http::services::ServeDir;
 
 use std::net::SocketAddr;
@@ -15,6 +18,9 @@ async fn main() {
         .nest("/posts", posts::routes())
         .fallback(get(not_found))
         .nest_service("/static", ServeDir::new("static"));
+
+    // To allow trailing slashes. TODO: Build my own to learn how it works.
+    let app = NormalizePathLayer::trim_trailing_slash().layer(app);
 
     let port =
         std::env::var("PORT").map_or(5001, |p| p.parse::<u16>().expect("PORT must be a number"));
