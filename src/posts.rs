@@ -174,6 +174,10 @@ mod models {
                 .filter(|post| post.tags().contains(tag))
                 .collect()
         }
+
+        pub fn url(&self) -> String {
+            format!("/posts/{}", self.slug)
+        }
     }
 }
 
