@@ -1,0 +1,41 @@
+{% macro arrowed_link(href, text, forward) %}
+<a
+  hx-boost="true"
+  hx-select="main"
+  hx-target="main"
+  hx-swap="outerHTML"
+  class="relative text-gruvbox-yellow w-max flex gap-2 items-center hover:underline focus:underline group {% if !forward %} hover:translate-x-8 transition-all duration-200 focus:translate-x-8 {% endif %}"
+  href="{{ href }}"
+>
+  <svg
+    fill="none"
+    viewBox="0 0 24 24"
+    stroke-width="1.5"
+    stroke="currentColor"
+    class="w-6 h-6 mt-0.5 opacity-0 transition-all duration-200 absolute top-1/2 -translate-y-1/2 group-hover:opacity-100 group-focus:opacity-100 group-focus:delay-150 group-hover:delay-150 {% if forward %} rotate-180 right-0 group-hover:translate-x-8 group-focus:translate-x-8 {% else %} left-0 group-hover:-translate-x-8 group-focus:-translate-x-8 {% endif %}"
+  >
+    <path
+      stroke-linecap="round"
+      stroke-linejoin="round"
+      d="M6.75 15.75L3 12m0 0l3.75-3.75M3 12h18"
+    />
+  </svg>
+  {{ text|safe }}
+</a>
+{% endmacro %}
+
+<!-- -->
+
+{% macro go_back_link(href, text) %}
+<!-- Back link -->
+{% call arrowed_link(href, text, false) %}
+<!-- Back link -->
+{% endmacro %}
+
+<!-- -->
+
+{% macro go_forward_link(href, text) %}
+<!-- Forward link -->
+{% call arrowed_link(href, text, true) %}
+<!-- Forward link -->
+{% endmacro %}
