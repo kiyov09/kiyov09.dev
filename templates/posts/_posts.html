@@ -6,7 +6,7 @@
   {% for post in posts %}
   <li class="block w-full tracking-wider space-y-2">
     <a
-      class="group"
+      class="group flex justify-between items-baseline"
       href="/posts/{{ post.slug }}"
       hx-boost="true"
       hx-select="main"
@@ -32,6 +32,11 @@
         </svg>
         {{ post.title }}
       </h2>
+      <time
+        class="block text-gruvbox-gray text-sm md:text-base font-light italic"
+        datetime="{{ post.date }}">
+        {{ post.date }}
+      </time>
     </a>
 
     <p>{{ post.summary|truncate(200) }}</p>

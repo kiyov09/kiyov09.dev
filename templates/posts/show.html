@@ -14,8 +14,12 @@
   <div class="relative space-y-3">
     <h1 class="text-4xl md:text-6xl text-gruvbox-yellow">{{ post.title }}</h1>
 
-    <p class="text-gruvbox-gray text-base font-light italic">
-      {{ post.date }}
+    <p>
+      <time
+        class="text-gruvbox-gray text-sm md:text-base font-light italic"
+        datetime="{{ post.date }}">
+        {{ post.date }}
+      </time>
     </p>
 
     {#
