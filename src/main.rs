@@ -26,6 +26,9 @@ async fn main() {
         std::env::var("PORT").map_or(5001, |p| p.parse::<u16>().expect("PORT must be a number"));
     let addr = SocketAddr::from(([0, 0, 0, 0], port));
 
+    println!("Listening on {}", addr);
+    println!("Press Ctrl+C to stop the server");
+
     axum::Server::bind(&addr)
         .serve(app.into_make_service())
         .await
