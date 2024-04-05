@@ -11,11 +11,14 @@ tw-dev:
 build: tw-build
   cargo build
 
+build-release: tw-build
+  cargo build --release
+
 run:
   cargo run
 
 # Deployment
 # INFO: this uses fly.io
 
-deploy: build
+deploy: build-release
   flyctl deploy
